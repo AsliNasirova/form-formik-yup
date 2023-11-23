@@ -40,6 +40,7 @@ const LoginForm = () => {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
         >
+{({isValid, dirty})=>(
             <Form>
                 <div className="form">
                     <div >
@@ -66,11 +67,12 @@ const LoginForm = () => {
 
                     {/* Əlavə fieldləri burada əlavə edə bilərsiniz */}
 
-                    <button type="submit" disabled={false}>
+                    <button type="submit" disabled={!isValid || !dirty}>
                         SIGN UP
                     </button>
                 </div>
             </Form>
+            )}
         </Formik>
     );
 };
